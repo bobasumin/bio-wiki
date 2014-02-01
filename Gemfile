@@ -7,7 +7,6 @@ gem 'rails', '3.2.14'
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 group :development do
@@ -29,6 +28,8 @@ end
 
 gem 'jquery-rails'
 gem 'newrelic_rpm'
+gem 'devise'
+gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
