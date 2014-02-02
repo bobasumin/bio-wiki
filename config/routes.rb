@@ -1,9 +1,7 @@
 BioWiki::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  get "welcome/index"
-
-  get "welcome/about"
+  match "about" => "welcome#about", via: :get
 
   root to: 'welcome#index'
 end
