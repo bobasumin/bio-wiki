@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h1>New Types</h1><br />
+  <%= form_for @type do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %></div>
+
+  <div class="large-12 columns"><%= f.label :description %>
+  <%= f.text_area :description %></div>
+
+  <div class="large-12 columns"><%= f.submit "Save", class: "button radius round" %></div>
+<% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= @type.name %></h1>
+    <p><%= @type.description %></p>
+
+    <%= link_to "New Post", new_post_path, class: "button radius round"%>
+    <%= render @posts %>
+  </div>
+</div>
