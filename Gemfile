@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.1.0'
 gem 'rails', '3.2.14'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
+  gem 'rails_12factor'
   gem 'pg'
 end
 
@@ -31,8 +33,6 @@ gem 'newrelic_rpm'
 gem 'devise'
 gem 'figaro'
 gem 'foundation-rails'
-
-ruby '2.1.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
