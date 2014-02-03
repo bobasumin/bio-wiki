@@ -14,8 +14,6 @@
  *= require_tree .
  */
  
- @import "foundation/functions";
-
 .emphasis {
   background-color: #8D81D5;
 }
