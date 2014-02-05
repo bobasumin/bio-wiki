@@ -28,10 +28,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'newrelic_rpm'
 gem 'devise'
 gem 'figaro'
 gem 'foundation-rails'
+gem 'redcarpet'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
