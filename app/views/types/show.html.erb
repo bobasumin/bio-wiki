@@ -3,7 +3,19 @@
     <h1><%= @type.name %></h1>
     <p><%= @type.description %></p>
 
-    <%= link_to "New Post", new_post_path, class: "button radius round"%>
-    <%= render @posts %>
+    <% if can? :update, @type %>
+      <%= link_to "Edit Type", edit_type_path, class: "button radius round"%>
+    <% end %>
+
+    <% if can? :create, Post %>
+      <%= link_to "New Post", new_type_post_path(@type), class: "button radius round"%>
+    <% end %>
+
+    <% @posts.each do |post| %>
+      <%= link_to post.title, [@type, post] %>
+      <small> submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %> </small>
+    <% end %>
+
+
   </div>
 </div>

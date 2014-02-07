@@ -24,9 +24,9 @@
         <ul class="right">
         <li class="divider"></li>
         <% if current_user %>
-          Hello <%= current_user.name %>! 
-          <%= link_to "My Account", edit_user_registration_path %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+          <li class="active"><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
+          <li class="active"><%= link_to "My Plan", '#' %></li>
+          <li class="active"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li class="has-dropdown">
               <%= link_to "Sign Up", new_user_registration_path %>
@@ -39,6 +39,7 @@
             <li class="active">
               <%= link_to "Sign In", new_user_session_path %></li>
         <% end %>
+      </ul>
 
         <ul class="left">
           <li class="has-dropdown">
