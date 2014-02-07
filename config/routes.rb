@@ -1,14 +1,12 @@
 BioWiki::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  resources :types do
-    resources :posts, except: [:index], controller: 'types/posts'
-  end
+  resources :posts
 
   match "about" => "welcome#about", via: :get
 
-  authenticated :users do
-    root to: 'types#index'
+  authenticated :user do
+    root to: 'posts#index', as: :authenticated_root
   end 
 
   root to: 'welcome#index'

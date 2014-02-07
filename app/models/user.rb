@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role
   # attr_accessible :title, :body
 
   has_many :posts
-  after_create :set_free_user
+  before_create :set_free_user
 
   ROLES = %w[free premium admin]
   def role?(base_role)

@@ -11,27 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203232008) do
+ActiveRecord::Schema.define(:version => 20140207213616) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "public",     :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "user_id"
-    t.integer  "type_id"
   end
 
-  add_index "posts", ["type_id"], :name => "index_posts_on_type_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
-
-  create_table "types", :force => true do |t|
-    t.string   "name"
-    t.boolean  "public",      :default => true
-    t.text     "description"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -51,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20140203232008) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
