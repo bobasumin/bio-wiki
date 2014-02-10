@@ -1,7 +1,9 @@
 BioWiki::Application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  devise_for :users
 
   resources :posts
+  resources :subscriptions, except: [:show, :index]
 
   match "about" => "welcome#about", via: :get
 

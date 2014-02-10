@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140207213616) do
+ActiveRecord::Schema.define(:version => 20140210172753) do
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "stripe_plan_id"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -23,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20140207213616) do
   end
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "subscriptions", ["plan_id"], :name => "index_subscriptions_on_plan_id"
+  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -43,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20140207213616) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
+    t.string   "stripe_id"
+    t.string   "last_4_digits"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

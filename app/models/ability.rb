@@ -5,6 +5,7 @@ class Ability
     user ||= User.new
     if user.role? :free
         can :manage, Post, :user_id => user.id
+        can :manage, Subscription, :user_id => user.id
     end
 
     if user.role? :premium
