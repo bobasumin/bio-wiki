@@ -3,8 +3,8 @@ BioWiki::Application.routes.draw do
   devise_for :users
 
   resources :posts
-  resources :subscriptions, except: [:show, :index]
-
+  resources :subscriptions
+  
   match "about" => "welcome#about", via: :get
 
   authenticated :user do
