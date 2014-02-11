@@ -3,11 +3,18 @@
     <h1>New Wiki</h1><br />
   <%= form_for @post do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %></div>
+  <%= f.text_field :title %>
 
-  <div class="large-12 columns"><%= f.label :body %>
-  <%= f.text_area :body %></div>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
 
-  <div class="large-12 columns"><%= f.submit "Save", class: "button radius round" %></div>
+  <% if current_user.role == 'premium' %>
+    <%= f.label :public do %>
+      <%= f.check_box :public %> Public
+    <% end %>
+  <% end %><br />
+
+  <%= f.submit "Save", class: "button radius round" %>
 <% end %>
+  </div>
 </div>

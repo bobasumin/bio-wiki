@@ -1,6 +1,11 @@
 <div class="row">
   <div class="large-12 columns">
     <h1><%= @post.title %></h1>
-    <p><%= markdown @post.body %></p>
+    <p><%= markdown @post.body %></p><br />
+
+    <%= link_to "Back to Wikis", posts_path, class: 'button radius round' %><br />
+    <% if can? :edit, @post %>
+      <%= link_to "Edit", edit_post_path(@post), class: 'button radius round' %>
+    <% end %>
   </div>
 </div>

@@ -7,8 +7,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "Bio-wiki" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "https://js.stripe.com/v2/", "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <%= tag :meta, name: "stripe-key", content: ENV['PUBLISHABLE_KEY'] %>
   </head>
 
   <body>
@@ -23,10 +24,11 @@
       <section class="top-bar-section">
         <ul class="right">
         <li class="divider"></li>
-        <% if current_user %>
-          Hello <%= current_user.name %>! 
-          <%= link_to "My Account", edit_user_registration_path %>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+        <% if current_user #&& (current_user.plan_id == 'free') %>
+          <li class="active"><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
+          <li class="active"><%= link_to "My Plan", '#' %></li>
+          <li class="active"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+          <li> <%= link_to "Upgrade Plan", '#' %> </li>
             <% else %>
             <li class="has-dropdown">
               <%= link_to "Sign Up", new_user_registration_path %>
@@ -39,6 +41,7 @@
             <li class="active">
               <%= link_to "Sign In", new_user_session_path %></li>
         <% end %>
+      </ul>
 
         <ul class="left">
           <li class="has-dropdown">
@@ -54,6 +57,5 @@
 
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
   </body>
 </html>
