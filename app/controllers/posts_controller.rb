@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @users = User.all
     authorize! :read, @post, message: "You need to have a proper permission to read."
   end
 

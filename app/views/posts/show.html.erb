@@ -2,10 +2,32 @@
   <div class="large-12 columns">
     <h1><%= @post.title %></h1>
     <p><%= markdown @post.body %></p><br />
-
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
     <%= link_to "Back to Wikis", posts_path, class: 'button radius round' %><br />
+  </div>
+  <div class="large-6 columns">
     <% if can? :edit, @post %>
       <%= link_to "Edit", edit_post_path(@post), class: 'button radius round' %>
+    <% end %><br /><br />
+  </div>
+  <div class="large-12 columns">
+    <% if current_user.role == 'premium' %>
+      <h3>Add Collaborators to the <%= @post.title %> Wiki</h3>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Give Access</th>
+        </tr>
+        <% @users.each do |u| %>
+        <tr>
+          <td><%= u.name %></td>
+          <td><%= u.email %></td>
+        <% end %>
+      </table>
     <% end %>
   </div>
 </div>

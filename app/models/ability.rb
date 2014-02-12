@@ -10,6 +10,7 @@ class Ability
 
     if user.role? :premium
         can :manage, Post, public: false
+        can :edit, user.shared_posts
     end
 
     if user.role? :admin

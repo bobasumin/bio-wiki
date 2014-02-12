@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token
   has_one :subscription, dependent: :destroy
   has_many :posts
+  has_many :collaborations
+  has_many :shared_posts, through: :collaborations, source: :post
   before_create :set_free_user
-  #after_create :create_stripe_member
 
   ROLES = %w[free premium admin]
   def role?(base_role)
