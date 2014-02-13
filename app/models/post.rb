@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :title, :public
+  attr_accessible :body, :title, :public, :user_ids
   belongs_to :user
   has_many :collaborations
   has_many :users, through: :collaborations

@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @users = User.all
-    authorize! :read, @post, message: "You need to have a proper permission to read."
+    authorize! :read, @post, message: "You need to have a proper permission to read." 
   end
 
   def new
@@ -42,6 +42,19 @@ class PostsController < ApplicationController
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    title = @post.title
+    authorize! :destroy, @post, message: "You need to own the wiki to delete."
+    if @post.destroy
+      flash[:notice] = "\"#{title}\" was deleted successfully."
+      redirect_to posts_path
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
     end
   end
 end

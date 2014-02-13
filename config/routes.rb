@@ -1,5 +1,7 @@
 BioWiki::Application.routes.draw do
 
+  resources :collaborations, only: [:index]
+
   devise_for :users
 
   resources :posts

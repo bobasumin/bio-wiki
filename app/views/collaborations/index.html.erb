@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="large-12 columns">
+  <h1>Shared Posts</h1><br />
+  <% @shared_posts.each do |s_post| %>
+    <h3><%= link_to s_post.title, s_post %></h3>
+    <small>Shared by <%= s_post.user.name %></small>
+  <% end %> 
+  </div>
+</div>

@@ -26,12 +26,15 @@
         <li class="divider"></li>
         <% if current_user %>
           <li class="active"><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
-          <li class="active"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-          <% if current_user.role != 'premium' %>
-            <li> <%= link_to "Upgrade Plan", new_subscription_path %> </li>
-            <% else %>
+          <% if current_user.role == 'premium' %>
+            <% if current_user.shared_posts %>
+              <li> <%= link_to "Shared Posts", collaborations_path %> </li>
+              <% end %>
             <li> <%= link_to "My Plan", edit_subscription_path(:plan_id, 'premium') %> </li>
+            <% else %>
+            <li> <%= link_to "Upgrade Plan", new_subscription_path %> </li>
           <% end %>
+        <li class="active"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li class="active">
               <%= link_to "Sign Up", new_user_registration_path %>

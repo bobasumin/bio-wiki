@@ -16,12 +16,12 @@ class SubscriptionsController < ApplicationController
   end
 
   def edit
-    @subscription = current_user.subscription
+    @subscription = current_user.subscription.plan_id
   end
 
   def update
-    cu = Stripe::Customer.retrieve(current_user.subscription.stripe_customer_token)
-    if cu.cancel_subscription
+    @subscription = Stripe::Customer.retrieve(current_user.subscription.stripe_customer_token)
+    if @subscription.cancel_subscription
       current_user.update_attribute(:role, 'free')
       current_user.subscription.destroy
       redirect_to root_path, :notice => "Thank you for trying Premium."
