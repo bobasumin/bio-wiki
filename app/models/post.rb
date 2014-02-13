@@ -9,4 +9,12 @@ class Post < ActiveRecord::Base
   validates :title, length: { minimum: 2 }, presence: true
   validates :body, length: { minimum: 5 }, presence: true
   validates :user, presence: true
+
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+
+  FriendlyId.defaults do |config|
+    config.use :reserved
+    config.reserved_words = %w(new edit)
+  end
 end
