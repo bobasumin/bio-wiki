@@ -1,8 +1,11 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.string :title
-      t.text :body
+      t.text :summary
+      t.text :earlylife
+      t.text :career
+      t.text :personallife
+      t.integer :birthdate
       t.boolean :public, default: true
 
       t.timestamps

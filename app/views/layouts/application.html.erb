@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Bio-wiki" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "https://js.stripe.com/v2/", "vendor/modernizr", "application" %>
+    <%= javascript_include_tag "https://js.stripe.com/v2/", "vendor/modernizr", "application"%>
     <%= csrf_meta_tags %>
     <%= tag :meta, name: "stripe-key", content: ENV['PUBLISHABLE_KEY'] %>
   </head>
@@ -18,14 +18,17 @@
         <li class="name">
           <h1><%= link_to "Bio-Wiki", root_path %></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
       </ul>
 
       <section class="top-bar-section">
         <ul class="right">
-        <li class="divider"></li>
         <% if current_user %>
           <li class="active"><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
+          <% if current_user.posts.first %>
+          <li class="active"><%= link_to "My Bio-Wiki", post_path(current_user.posts.first.id) %></li>
+           <% else %>
+           <li class="active"><%= link_to "Create Wiki", new_post_path %></li>
+          <% end %>
           <% if current_user.role == 'premium' %>
             <% if current_user.shared_posts %>
               <li> <%= link_to "Shared Posts", collaborations_path %> </li>
@@ -34,7 +37,7 @@
             <% else %>
             <li> <%= link_to "Upgrade Plan", new_subscription_path %> </li>
           <% end %>
-        <li class="active"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li class="active">
               <%= link_to "Sign Up", new_user_registration_path %>

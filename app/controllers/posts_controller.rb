@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @users = User.all
+    @user = current_user
     if request.path != post_path(@post)
       redirect_to @post, status: :moved_permanently
     end
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @user = current_user
     authorize! :create, Post
   end
 
@@ -33,6 +35,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @user = current_user
     authorize! :edit, @post, message: "You need to own this post to edit."
   end
 
@@ -50,10 +53,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    title = @post.title
     authorize! :destroy, @post, message: "You need to own the wiki to delete."
     if @post.destroy
-      flash[:notice] = "\"#{title}\" was deleted successfully."
+      flash[:notice] = "Your Wiki was deleted successfully."
       redirect_to posts_path
     else
       flash[:error] = "There was an error deleting the topic."

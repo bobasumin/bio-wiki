@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-12 columns">
+  <div class="panel small-12 columns">
     <h1> All Wikis </h1><br />
     <% if can? :create, Post %>
       <%= link_to "New Wiki", new_post_path, class: 'button radius round' %> <br /><br />
@@ -9,13 +9,5 @@
         <h3><%= link_to post.title, post %></h3>
         <small>submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></small><br /><br />
       <% end %>
-  </div>
-  <div class="larg-12 columns">
-    <br /><br /><br /><h1> My wikis </h1><br />
-    <% @posts.each do |post| if post.user.email == current_user.email %>
-    <h3><%= link_to post.title, post %></h3>
-    <small>submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></small><br /><br />
-    <% end %>
-    <% end %>
   </div>
 </div>

@@ -40,11 +40,14 @@ ActiveRecord::Schema.define(:version => 20140213212112) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "public",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.text     "summary"
+    t.text     "earlylife"
+    t.text     "career"
+    t.text     "personallife"
+    t.integer  "birthdate"
+    t.boolean  "public",       :default => true
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
     t.string   "slug"
   end
