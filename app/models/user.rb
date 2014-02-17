@@ -5,12 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_posts
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_posts, :avatar
   has_one :subscription, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :collaborations
   has_many :shared_posts, through: :collaborations, source: :post, dependent: :destroy
   before_create :set_free_user
+  mount_uploader :avatar, AvatarUploader
 
   ROLES = %w[free premium admin]
   def role?(base_role)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140213212112) do
+ActiveRecord::Schema.define(:version => 20140217033800) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "post_id"
@@ -40,13 +40,17 @@ ActiveRecord::Schema.define(:version => 20140213212112) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "public",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.text     "summary"
+    t.text     "earlylife"
+    t.text     "career"
+    t.text     "personallife"
+    t.integer  "birthdate"
+    t.boolean  "public",       :default => true
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
     t.string   "slug"
+    t.string   "image"
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug"
@@ -80,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20140213212112) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
