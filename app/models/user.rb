@@ -5,11 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-<<<<<<< HEAD
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_posts, :avatar
-=======
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_wikis, :birthdate
->>>>>>> front-end-change
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_wikis, :birthdate, :avatar
   has_one :subscription, dependent: :destroy
   has_one :wiki
   has_many :collaborations

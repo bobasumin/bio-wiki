@@ -11,9 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20140217031923) do
-=======
 ActiveRecord::Schema.define(:version => 20140218210224) do
 
   create_table "collaborations", :force => true do |t|
@@ -22,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20140218210224) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
->>>>>>> front-end-change
 
   create_table "plans", :force => true do |t|
     t.string   "name"
@@ -32,8 +28,6 @@ ActiveRecord::Schema.define(:version => 20140218210224) do
     t.datetime "updated_at",  :null => false
   end
 
-<<<<<<< HEAD
-=======
   create_table "sections", :force => true do |t|
     t.text     "summary"
     t.string   "name"
@@ -43,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20140218210224) do
     t.datetime "updated_at", :null => false
   end
 
->>>>>>> front-end-change
   create_table "subscriptions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "plan_id"
@@ -72,11 +65,8 @@ ActiveRecord::Schema.define(:version => 20140218210224) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
-<<<<<<< HEAD
     t.string   "avatar"
-=======
     t.date     "birthdate"
->>>>>>> front-end-change
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
