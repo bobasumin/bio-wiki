@@ -1,0 +1,36 @@
+<%= form_for @wiki do |f| %>
+<div class="row">
+  <div class="panel small-12 columns">
+  <% if @wiki.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@wiki.errors.count, "error") %> prohibited this survey from being saved:</h2>
+      <ul>
+      <% @wiki.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+    <h2><strong><%= @user.name %></strong></h2>
+      <hr />
+      <div class= "small-8 columns"> 
+      <%= f.fields_for :sections do |builder| %>
+        <%= render 'section_fields', f: builder %>
+      <% end %>
+      <p><%= link_to_add_fields "Add Section", f, :sections %></p><br />
+      </div>
+
+      <div class="small-4 columns">
+        <div class="card">
+      <%= label :birthdate, "Date of Birth" %>
+      <%= date_select("user", "birthdate", start_year: Time.now.year - 100, end_year: Time.now.year) %>
+        </div>
+      </div>
+    
+    <div class="small-12 columns">
+      <%= f.submit "Save", class: "button radius round" %>
+    </div>
+  </div> 
+<% end %>  
+</div>

@@ -12,10 +12,9 @@
   <%= f.hidden_field :plan_id, value: 'premium' %>
   <%= f.hidden_field :stripe_card_token %>
 
-<div class="row"><br />
-  <div class="large-12 columns">
+<div class="row">
+  <div class="panel small-12 columns">
     <h2>Upgrade to Premium Plan</h2><br />
-  </div>
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -42,6 +41,7 @@
   </div>
   <div class="actions">
     <%= f.submit "Subscribe", class: 'button radius round' %>
+  </div>
   </div>
 </div>
 <% end %>

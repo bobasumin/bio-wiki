@@ -5,11 +5,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
+<<<<<<< HEAD
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_posts, :avatar
+=======
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_wikis, :birthdate
+>>>>>>> front-end-change
   has_one :subscription, dependent: :destroy
-  has_many :posts, dependent: :destroy
+  has_one :wiki
   has_many :collaborations
-  has_many :shared_posts, through: :collaborations, source: :post, dependent: :destroy
+  has_many :shared_wikis, through: :collaborations, source: :wiki, dependent: :destroy
   before_create :set_free_user
   mount_uploader :avatar, AvatarUploader
 

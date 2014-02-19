@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="panel small-12 columns">
+    <h1> All Wikis </h1><br />
+    <% if can? :create, Wiki %>
+      <%= link_to "New Wiki", new_wiki_path, class: 'button radius round' %> <br /><br />
+    <% end %>
+
+      <% @wikis.each do |wiki| %>
+        <h3><%= link_to wiki.user.name, wiki %></h3>
+        <small>submitted <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user.name %></small><br /><br />
+      <% end %>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class CollaborationsController < ApplicationController
   def index
-    @shared_posts = current_user.shared_posts
+    @shared_wikis = current_user.shared_wikis
   end
 end

@@ -35,9 +35,9 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
+$body-bg: #484848;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -653,17 +653,17 @@
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color(#fff, $lightness: -5%);
-// $panel-border-style: solid;
-// $panel-border-size: 1px;
+$panel-bg: #fff;
+$panel-border-style: none;
+// $panel-border-size: 2px;
 
 // We use this % to control how much we darken things on hover
 // $panel-function-factor: -11%;
-// $panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor);
+// $panel-border-color: #ccc;
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: rem-calc(20);
-// $panel-padding: rem-calc(20);
+$panel-padding: 40px;
 
 // We use these to set default font colors
 // $panel-font-color: #333;
@@ -1012,12 +1012,12 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #494949;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
-// $topbar-margin-bottom: 0;
+$topbar-height: 50px;
+$topbar-margin-bottom: 30px;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
@@ -1031,15 +1031,15 @@
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
-
+  
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
+$topbar-link-color: #abadaf;
 // $topbar-link-color-hover: #fff;
-// $topbar-link-color-active: #fff;
+$topbar-link-color-active: #fff;
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727  ;
+$topbar-link-bg-hover: #333  ;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
