@@ -24,14 +24,14 @@
         <ul class="right">
         <% if current_user %>
           <li class="active"><%= link_to "#{current_user.name}", edit_user_registration_path %></li>
-          <% if current_user.posts.first %>
-          <li class="active"><%= link_to "My Bio-Wiki", post_path(current_user.posts.first.id) %></li>
+          <% if current_user.wiki %>
+          <li class="active"><%= link_to "My Bio-Wiki", wiki_path(current_user.wiki.id) %></li>
            <% else %>
-           <li class="active"><%= link_to "Create Wiki", new_post_path %></li>
+           <li class="active"><%= link_to "Create Wiki", new_wiki_path %></li>
           <% end %>
           <% if current_user.role == 'premium' %>
-            <% if current_user.shared_posts %>
-              <li> <%= link_to "Shared Posts", collaborations_path %> </li>
+            <% if current_user.shared_wikis %>
+              <li> <%= link_to "Shared Wikis", collaborations_path %> </li>
               <% end %>
             <li> <%= link_to "My Plan", edit_subscription_path(:plan_id, 'premium') %> </li>
             <% else %>
@@ -50,7 +50,7 @@
 
         <ul class="left">
           <li class="active">
-            <%= link_to "Wikis", posts_path %>
+            <%= link_to "Wikis", wikis_path %>
           </li>
         </ul>
       </section>

@@ -2,7 +2,7 @@
   <div class="panel small-12 columns">
   <h2>Resend confirmation instructions</h2><br />
 
-  <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :wiki }) do |f| %>
    <%= devise_error_messages! %>
 
     <div><%= f.label :email %><br />

@@ -4,19 +4,18 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.role? :free
-        can :manage, Post, :user_id => user.id
+        can :manage, Wiki, :user_id => user.id
         can :manage, Subscription, :user_id => user.id
     end
 
     if user.role? :premium
-        can :manage, Post, public: false
-        can :update, user.shared_posts
+        can :update, user.shared_wikis
     end
 
     if user.role? :admin
         can :manage, :all
     end
 
-    can :read, Post
+    can :read, Wiki
   end
 end
