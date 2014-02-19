@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
 
-  private
+  def own_and_shared_wikis
+    [self.wiki] + self.shared_wikis
+  end
 
   def set_free_user
     self.role = 'free'

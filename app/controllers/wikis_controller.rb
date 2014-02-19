@@ -11,7 +11,7 @@ class WikisController < ApplicationController
     if request.path != wiki_path(@wiki)
       redirect_to @wiki, status: :moved_permanently
     end
-    authorize! :read, @wikis, message: "You need to have a proper permission to read." 
+    authorize! :read, @wiki, message: "You need to have a proper permission to read." 
   end
 
   def new
@@ -23,14 +23,15 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = Wiki.new(params[:wiki])
+    @wiki = current_user.build_wiki(params[:wiki])
     authorize! :create, @wiki, message: "You need to have a proper permission to create a Wiki."    
+    binding.pry
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
     else
       flash[:error] = "There was an error saving your Wiki. Please try again."
-      redirect_to :new
+      render :new
     end
   end
 
