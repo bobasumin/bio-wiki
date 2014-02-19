@@ -1,0 +1,9 @@
+<section>
+  <%= f.label :name, "Section Name" %>
+  <%= f.text_field :name, placeholder: 'e.g.) Summary, Early Life, Career, etc.' %><br />
+  <%= f.label :body, "Content" %>
+  <%= f.text_area :body, :rows => 5, placeholder: 'Write your bio here.' %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", "#", class: 'remove_fields' %><br /><br />
+  <hr />
+</section>
