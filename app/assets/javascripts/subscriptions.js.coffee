@@ -2,26 +2,32 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery(function($) {
-  $('#payment-form').submit(function(event) {
-    var $form = $(this);
-    $form.find('button').prop('disabled', true);
-    Stripe.card.createToken($form, stripeResponseHandler);
-    return false;
-  });
-});
+jQuery ->
+  Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
+  subscription.setupForm()
 
-var stripeResponseHandler = function(status, response) {
-  var $form = $('#payment-form');
-
-  if (response.error) {
-    // Show the errors on the form
-    $form.find('.payment-errors').text(response.error.message);
-    $form.find('button').prop('disabled', false);
-  } else {
-    var token = response.id;
-    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-    // and submit
-    $form.get(0).submit();
-  }
-};
+subscription =
+  setupForm: ->
+    $('#new_subscription').submit ->
+      $('input[type=submit]').attr('disabled', true)
+      if $('#card_number').length
+        subscription.processCard()
+        false
+      else
+        true
+  
+  processCard: ->
+    card =
+      number: $('#card_number').val()
+      cvc: $('#card_code').val()
+      expMonth: $('#card_month').val()
+      expYear: $('#card_year').val()
+    Stripe.createToken(card, subscription.handleStripeResponse)
+  
+  handleStripeResponse: (status, response) ->
+    if status == 200
+      $('#subscription_stripe_card_token').val(response.id)
+      $('#new_subscription')[0].submit()
+    else
+      $('#stripe_error').text(response.error.message)
+      $('input[type=submit]').attr('disabled', false)

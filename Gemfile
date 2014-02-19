@@ -34,6 +34,10 @@ gem 'foundation-rails'
 gem 'redcarpet'
 gem "cancan"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem "friendly_id", "~> 4.0.10"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

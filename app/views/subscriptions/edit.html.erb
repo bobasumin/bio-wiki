@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="large-12 columns">
+    <h1> Manage Your Plan </h1>
+    <%#= form_for @subscription do |f| %>
+    <p>You are currently subscribing to <strong><%= current_user.role %></strong> plan.</p>
+      <%#= f.hidden_field :plan_id, value: 'free' %>
+      <%#= f.hidden_field :stripe_card_token %>
+      <%#= f.submit "Cancel subscription", class: 'button alert radius round' %>
+    <%# end %>
+
+  </div>
+</div>

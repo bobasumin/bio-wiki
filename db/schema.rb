@@ -11,37 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210172753) do
+ActiveRecord::Schema.define(:version => 20140218210224) do
 
-  create_table "plans", :force => true do |t|
-    t.string   "name"
-    t.float    "price"
-    t.text     "description"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.integer  "stripe_plan_id"
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "public",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.integer  "user_id"
-  end
-
-  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
-
-  create_table "subscriptions", :force => true do |t|
-    t.integer  "plan_id"
+  create_table "collaborations", :force => true do |t|
+    t.integer  "wiki_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "subscriptions", ["plan_id"], :name => "index_subscriptions_on_plan_id"
-  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.text     "summary"
+    t.string   "name"
+    t.text     "body"
+    t.integer  "wiki_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.string   "email"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "stripe_customer_token"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -62,11 +65,19 @@ ActiveRecord::Schema.define(:version => 20140210172753) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "role"
-    t.string   "stripe_id"
-    t.string   "last_4_digits"
+    t.string   "avatar"
+    t.date     "birthdate"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "wikis", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "wikis", ["user_id"], :name => "index_wikis_on_user_id"
 
 end
