@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218210224) do
+ActiveRecord::Schema.define(:version => 20140218171333) do
 
   create_table "collaborations", :force => true do |t|
     t.integer  "wiki_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20140218210224) do
     t.text     "summary"
     t.string   "name"
     t.text     "body"
+    t.date     "birthdate"
     t.integer  "wiki_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -66,18 +67,15 @@ ActiveRecord::Schema.define(:version => 20140218210224) do
     t.datetime "updated_at",                             :null => false
     t.string   "role"
     t.string   "avatar"
-    t.date     "birthdate"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "wikis", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
-
-  add_index "wikis", ["user_id"], :name => "index_wikis_on_user_id"
 
 end

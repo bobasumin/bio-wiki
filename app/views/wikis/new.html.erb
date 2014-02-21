@@ -1,1 +1,14 @@
-<%= render "form" %>
+<div class="row">
+  <div class="panel small-12 columns">
+    <h2><strong><%= current_user.name %></strong></h2>
+    <hr />
+    <div class="small-8 columns">
+    <%= render "form" %>
+    </div>
+
+    <div class="card small-4 columns">
+       <%= label :birthdate, "Date of Birth" %>
+       <%= date_select("birthdate", start_year: Time.now.year - 100, end_year: Time.now.year) %>
+    </div>
+  </div>
+</div>

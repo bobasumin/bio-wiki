@@ -4,6 +4,7 @@ class CreateSections < ActiveRecord::Migration
       t.text :summary
       t.string :name
       t.text :body
+      t.date :birthdate
       t.integer :wiki_id
 
       t.timestamps
