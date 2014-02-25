@@ -29,7 +29,7 @@
        <%= link_to "Edit", edit_wiki_path(@wiki), class: 'button radius round' %>
      <% end %><br /><br />
 
-     <% if (@wiki.user.email == current_user.email && current_user.role == 'premium') %>
+     <% if (@wiki.user.email == current_user.email && current_user.role == 'premium' || 'admin') %>
        <h3>Add Collaborators to your Wiki</h3><br />
        <%= form_for @wiki do |f| %>
        <table>

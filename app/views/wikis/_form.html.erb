@@ -19,8 +19,6 @@
 
   <div class="card small-3 small-offset-1 columns">
     <%= f.fields_for :biocard do |builder| %>
-      <%= builder.label :dob, "Date of Birth" %>
-      <%= builder.text_field :dob, id: 'dp1' %>
       <%= render 'biocard_fields', f: builder %>
     <% end %>
   </div>

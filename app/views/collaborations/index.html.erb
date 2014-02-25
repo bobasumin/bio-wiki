@@ -2,7 +2,7 @@
   <div class="panel small-12 columns">
   <h1>Shared Wikis</h1><br />
   <% @shared_wikis.each do |s_wiki| %>
-    <h3><%= link_to s_wiki.title, s_wiki %></h3>
+    <h3><%= link_to "#{s_wiki.user.name}\'s Wiki", s_wiki %></h3>
     <small>Shared by <%= s_wiki.user.name %></small>
   <% end %> 
   </div>

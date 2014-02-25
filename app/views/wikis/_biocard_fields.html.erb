@@ -1,3 +1,5 @@
+<%= f.label :dob, "Date of Birth" %>
+<%= f.date_select :dob, default: Time.now.utc, start_year: Time.now.year - 130, end_year: Time.now.year%>
 <%= f.label :pob, "Place of Birth" %>
 <%= f.text_field :pob, placeholder: 'Philadelphia, PA, U.S.A.' %>
 <%= f.label :nationality, "Nationality" %>
