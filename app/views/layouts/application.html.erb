@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Bio-wiki" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "https://js.stripe.com/v2/", "vendor/modernizr", "application"%>
+    <%= javascript_include_tag "https://js.stripe.com/v2/", "vendor/modernizr", "application" %>
     <%= csrf_meta_tags %>
     <%= tag :meta, name: "stripe-key", content: ENV['PUBLISHABLE_KEY'] %>
   </head>
@@ -29,7 +29,7 @@
            <% else %>
            <li class="active"><%= link_to "Create Wiki", new_wiki_path %></li>
           <% end %>
-          <% if current_user.role == 'premium' %>
+          <% if current_user.role == 'premium' || 'admin' %>
             <% if current_user.shared_wikis %>
               <li> <%= link_to "Shared Wikis", collaborations_path %> </li>
               <% end %>

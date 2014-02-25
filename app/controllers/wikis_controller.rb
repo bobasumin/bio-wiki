@@ -15,7 +15,6 @@ class WikisController < ApplicationController
   def new
     @wiki = Wiki.new
     @user = current_user
-    2.times { @wiki.sections.build }
 
     authorize! :create, Wiki
   end

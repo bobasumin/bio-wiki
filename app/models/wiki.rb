@@ -1,8 +1,10 @@
 class Wiki < ActiveRecord::Base
-  attr_accessible :user_ids, :sections_attributes, :user_id
+  attr_accessible :user_ids, :sections_attributes, :biocard_attributes, :user_id
   belongs_to :user
   has_many :sections
-  accepts_nested_attributes_for :sections, allow_destroy: true
+  has_one :biocard
+  accepts_nested_attributes_for :sections, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :biocard
 
   has_many :collaborations
   has_many :users, through: :collaborations

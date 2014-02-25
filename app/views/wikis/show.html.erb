@@ -12,9 +12,15 @@
 
     <div class="small-4 columns">
       <div class="card">
-        <p>hello</p>
-        <% binding.pry %>
-        <p><strong>Date of Birth:</strong><%= @wiki.user.birthdate %></p>
+        <div id="profile_pic">
+          <%= image_tag(@user.avatar.profile.url) if @user.avatar? %><br /><br />       
+        </div>
+        <div id="card_content">
+          <p><strong>Date of Birth: </strong><br />
+            <%= @wiki.biocard.dob.strftime("%B %d, %Y") %></p>
+          <p><strong>Place of Birth: </strong><br /><%= @wiki.biocard.pob %></p>
+          <p><strong>Nationality: </strong><%= @wiki.biocard.nationality %></p>
+        </div>    
       </div>
     </div>
     

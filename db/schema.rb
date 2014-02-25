@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218171333) do
+ActiveRecord::Schema.define(:version => 20140224181224) do
+
+  create_table "biocards", :force => true do |t|
+    t.date     "dob"
+    t.string   "pob"
+    t.string   "nationality"
+    t.integer  "wiki_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "collaborations", :force => true do |t|
     t.integer  "wiki_id"
@@ -29,10 +38,8 @@ ActiveRecord::Schema.define(:version => 20140218171333) do
   end
 
   create_table "sections", :force => true do |t|
-    t.text     "summary"
     t.string   "name"
     t.text     "body"
-    t.date     "birthdate"
     t.integer  "wiki_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

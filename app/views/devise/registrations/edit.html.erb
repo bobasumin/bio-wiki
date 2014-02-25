@@ -5,6 +5,11 @@
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
 
+  <div><%= image_tag(current_user.avatar.profile.url) if current_user.avatar? %>
+  <%= f.label :avatar%>
+  <%= f.file_field :avatar %><br /><br />
+  </div>
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %><br /></div>
 
