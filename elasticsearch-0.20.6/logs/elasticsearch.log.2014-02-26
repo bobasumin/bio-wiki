@@ -1,0 +1,16 @@
+[2014-02-26 10:47:35,197][INFO ][node                     ] [Googam] {0.20.6}[72508]: initializing ...
+[2014-02-26 10:47:35,204][INFO ][plugins                  ] [Googam] loaded [], sites []
+[2014-02-26 10:47:37,507][INFO ][node                     ] [Googam] {0.20.6}[72508]: initialized
+[2014-02-26 10:47:37,507][INFO ][node                     ] [Googam] {0.20.6}[72508]: starting ...
+[2014-02-26 10:47:37,608][INFO ][transport                ] [Googam] bound_address {inet[/0:0:0:0:0:0:0:0%0:9300]}, publish_address {inet[/192.168.3.202:9300]}
+[2014-02-26 10:47:40,635][INFO ][cluster.service          ] [Googam] new_master [Googam][1baTZdFzSqCQ08BD0WEWMw][inet[/192.168.3.202:9300]], reason: zen-disco-join (elected_as_master)
+[2014-02-26 10:47:40,678][INFO ][discovery                ] [Googam] elasticsearch/1baTZdFzSqCQ08BD0WEWMw
+[2014-02-26 10:47:40,691][INFO ][http                     ] [Googam] bound_address {inet[/0:0:0:0:0:0:0:0%0:9200]}, publish_address {inet[/192.168.3.202:9200]}
+[2014-02-26 10:47:40,691][INFO ][node                     ] [Googam] {0.20.6}[72508]: started
+[2014-02-26 10:47:40,734][INFO ][gateway                  ] [Googam] recovered [0] indices into cluster_state
+[2014-02-26 10:47:46,317][INFO ][cluster.metadata         ] [Googam] [wikis] creating index, cause [auto(delete api)], shards [5]/[1], mappings []
+[2014-02-26 10:48:08,076][INFO ][cluster.metadata         ] [Googam] [wikis] update_mapping [wiki] (dynamic)
+[2014-02-26 14:03:06,725][INFO ][node                     ] [Googam] {0.20.6}[72508]: stopping ...
+[2014-02-26 14:03:06,771][INFO ][node                     ] [Googam] {0.20.6}[72508]: stopped
+[2014-02-26 14:03:06,771][INFO ][node                     ] [Googam] {0.20.6}[72508]: closing ...
+[2014-02-26 14:03:06,780][INFO ][node                     ] [Googam] {0.20.6}[72508]: closed

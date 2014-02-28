@@ -1,0 +1,24 @@
+[2014-02-28 10:26:38,741][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: initializing ...
+[2014-02-28 10:26:38,750][INFO ][plugins                  ] [Ghost Girl] loaded [], sites []
+[2014-02-28 10:26:41,086][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: initialized
+[2014-02-28 10:26:41,086][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: starting ...
+[2014-02-28 10:26:41,183][INFO ][transport                ] [Ghost Girl] bound_address {inet[/0:0:0:0:0:0:0:0%0:9300]}, publish_address {inet[/192.168.3.202:9300]}
+[2014-02-28 10:26:44,249][INFO ][cluster.service          ] [Ghost Girl] new_master [Ghost Girl][oHLr4VW3SHOh0yZiah7UsA][inet[/192.168.3.202:9300]], reason: zen-disco-join (elected_as_master)
+[2014-02-28 10:26:44,288][INFO ][discovery                ] [Ghost Girl] elasticsearch/oHLr4VW3SHOh0yZiah7UsA
+[2014-02-28 10:26:44,299][INFO ][http                     ] [Ghost Girl] bound_address {inet[/0:0:0:0:0:0:0:0%0:9200]}, publish_address {inet[/192.168.3.202:9200]}
+[2014-02-28 10:26:44,299][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: started
+[2014-02-28 10:26:44,901][INFO ][gateway                  ] [Ghost Girl] recovered [1] indices into cluster_state
+[2014-02-28 11:42:55,548][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] deleting index
+[2014-02-28 11:42:55,607][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] creating index, cause [api], shards [5]/[1], mappings [wiki]
+[2014-02-28 11:42:55,781][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] update_mapping [wiki] (dynamic)
+[2014-02-28 11:43:44,484][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] update_mapping [wiki] (dynamic)
+[2014-02-28 11:52:18,095][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] deleting index
+[2014-02-28 11:52:18,140][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] creating index, cause [api], shards [5]/[1], mappings [wiki]
+[2014-02-28 11:52:18,419][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] update_mapping [wiki] (dynamic)
+[2014-02-28 11:59:50,761][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] deleting index
+[2014-02-28 11:59:50,812][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] creating index, cause [api], shards [5]/[1], mappings [wiki]
+[2014-02-28 11:59:50,999][INFO ][cluster.metadata         ] [Ghost Girl] [wikis] update_mapping [wiki] (dynamic)
+[2014-02-28 12:11:12,187][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: stopping ...
+[2014-02-28 12:11:12,229][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: stopped
+[2014-02-28 12:11:12,229][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: closing ...
+[2014-02-28 12:11:12,233][INFO ][node                     ] [Ghost Girl] {0.20.6}[5708]: closed

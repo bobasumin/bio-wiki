@@ -39,6 +39,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'pry-rails', :group => :development
+gem 'tire'
+gem 'will_paginate'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

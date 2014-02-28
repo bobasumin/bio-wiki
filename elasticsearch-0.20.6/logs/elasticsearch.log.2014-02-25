@@ -1,0 +1,14 @@
+[2014-02-25 16:22:41,208][INFO ][node                     ] [Wicked] {0.20.6}[69525]: initializing ...
+[2014-02-25 16:22:41,213][INFO ][plugins                  ] [Wicked] loaded [], sites []
+[2014-02-25 16:22:42,908][INFO ][node                     ] [Wicked] {0.20.6}[69525]: initialized
+[2014-02-25 16:22:42,909][INFO ][node                     ] [Wicked] {0.20.6}[69525]: starting ...
+[2014-02-25 16:22:42,991][INFO ][transport                ] [Wicked] bound_address {inet[/0:0:0:0:0:0:0:0%0:9300]}, publish_address {inet[/192.168.3.202:9300]}
+[2014-02-25 16:22:46,051][INFO ][cluster.service          ] [Wicked] new_master [Wicked][Mehj-5PzROOzi7YODYUUfg][inet[/192.168.3.202:9300]], reason: zen-disco-join (elected_as_master)
+[2014-02-25 16:22:46,089][INFO ][discovery                ] [Wicked] elasticsearch/Mehj-5PzROOzi7YODYUUfg
+[2014-02-25 16:22:46,101][INFO ][http                     ] [Wicked] bound_address {inet[/0:0:0:0:0:0:0:0%0:9200]}, publish_address {inet[/192.168.3.202:9200]}
+[2014-02-25 16:22:46,101][INFO ][node                     ] [Wicked] {0.20.6}[69525]: started
+[2014-02-25 16:22:46,137][INFO ][gateway                  ] [Wicked] recovered [0] indices into cluster_state
+[2014-02-25 17:09:43,612][INFO ][node                     ] [Wicked] {0.20.6}[69525]: stopping ...
+[2014-02-25 17:09:43,648][INFO ][node                     ] [Wicked] {0.20.6}[69525]: stopped
+[2014-02-25 17:09:43,648][INFO ][node                     ] [Wicked] {0.20.6}[69525]: closing ...
+[2014-02-25 17:09:43,656][INFO ][node                     ] [Wicked] {0.20.6}[69525]: closed

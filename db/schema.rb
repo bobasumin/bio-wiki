@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140224181224) do
+ActiveRecord::Schema.define(:version => 20140228163724) do
 
   create_table "biocards", :force => true do |t|
     t.date     "dob"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140224181224) do
     t.integer  "wiki_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "location"
   end
 
   create_table "collaborations", :force => true do |t|
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20140224181224) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title"
   end
 
 end
