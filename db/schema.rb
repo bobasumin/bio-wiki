@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140228163724) do
+ActiveRecord::Schema.define(:version => 20140228192402) do
 
   create_table "biocards", :force => true do |t|
     t.date     "dob"
@@ -79,6 +79,19 @@ ActiveRecord::Schema.define(:version => 20140228163724) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "value"
+    t.integer  "wiki_id"
+    t.integer  "section_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["section_id"], :name => "index_votes_on_section_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
+  add_index "votes", ["wiki_id"], :name => "index_votes_on_wiki_id"
 
   create_table "wikis", :force => true do |t|
     t.integer  "user_id"

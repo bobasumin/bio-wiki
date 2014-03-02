@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_wikis, :birthdate, :avatar
   has_one :subscription, dependent: :destroy
   has_one :wiki
+  has_many :votes, dependent: :destroy
   has_many :collaborations
   has_many :shared_wikis, through: :collaborations, source: :wiki, dependent: :destroy
   before_create :set_free_user

@@ -11,6 +11,8 @@ class Ability
 
     if user.role? :premium
         can :update, user.shared_wikis
+        can :create, Vote
+        can :update, Vote
     end
 
     if user.role? :admin

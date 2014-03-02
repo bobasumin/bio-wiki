@@ -2,6 +2,7 @@ class Wiki < ActiveRecord::Base
   attr_accessible :user_ids, :sections_attributes, :biocard_attributes, :user_id, :title
   belongs_to :user
   has_many :sections
+  has_many :votes, dependent: :destroy, through: :sections
   has_one :biocard
   accepts_nested_attributes_for :sections, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :biocard
