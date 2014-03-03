@@ -4,6 +4,5 @@ module FormHelper
     2.times { wiki.sections.build }
     wiki
   end
-
 end
  

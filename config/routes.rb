@@ -4,8 +4,10 @@ BioWiki::Application.routes.draw do
 
   devise_for :users
 
-  resources :wikis do
-    resources :votes
+  resources :wikis
+  
+  resources :sections do
+    resources :votes 
   end
   
   resources :subscriptions

@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20140228192402) do
 
   create_table "votes", :force => true do |t|
     t.integer  "value"
-    t.integer  "wiki_id"
     t.integer  "section_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
@@ -91,7 +90,6 @@ ActiveRecord::Schema.define(:version => 20140228192402) do
 
   add_index "votes", ["section_id"], :name => "index_votes_on_section_id"
   add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
-  add_index "votes", ["wiki_id"], :name => "index_votes_on_wiki_id"
 
   create_table "wikis", :force => true do |t|
     t.integer  "user_id"

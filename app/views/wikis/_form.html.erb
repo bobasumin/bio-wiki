@@ -1,7 +1,7 @@
 <%= form_for (setup_wiki(@wiki)) do |f| %>
   <% if @wiki.errors.any? %>
     <div class="error_messages">
-      <h2><%= pluralize(@wiki.errors.count, "error") %> prohibited this survey from being saved:</h2>
+      <h2><%= pluralize(@wiki.errors.count, "error") %> prohibited this wiki from being saved:</h2>
       <ul>
       <% @wiki.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

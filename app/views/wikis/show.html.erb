@@ -6,9 +6,16 @@
         <% @wiki.sections.each do |section| %>
           <h3><strong><%= section.name %></strong></h3>
           <p><%= section.body %></p><br />
-            <%# if current_user.role != 'free' %>
-            <%#= form_for [@wiki, @vote] do |f| %>
-            <%# end %>
+          <div class="small-4 columns">
+          <% if can? :create, Vote %>
+            <%= form_for section do |f| %>          
+              <%= f.fields_for :votes do |builder| %>
+                <%= render 'vote_fields', f: builder %>
+              <% end %>
+              <%= f.submit "Save", class: "button radius round" %>
+            <% end %>
+          <% end %>
+          </div>
           <hr />
         <% end %>
       </div>

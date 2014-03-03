@@ -1,12 +1,11 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.search(params)
+    @wikis = Wiki.all
     authorize! :read, Wiki, message: "You have to be signed-in."
   end
 
   def show
     @wiki = Wiki.find(params[:id])
-
     authorize! :read, @wiki, message: "You need to have a proper permission to read." 
     @users = User.all
     @user = @wiki.user

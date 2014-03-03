@@ -2,22 +2,20 @@
   <div class="panel small-12 columns">
     <h1> All Wikis </h1><br />
 
-    <%= form_tag wikis_path, method: :get do %>
+    <%#= form_tag wikis_path, method: :get do %>
       <p>
-        <%= text_field_tag :query, params[:query] %>
-        <%= submit_tag "Search", name: nil, class: 'button small radius round' %>
+        <%#= text_field_tag :query, params[:query] %>
+        <%#= submit_tag "Search", name: nil, class: 'button small radius round' %>
       </p>
-    <% end %>
+    <%# end %>
 
     <% if current_user.wiki.blank? %>
      <%= link_to "New Wiki", new_wiki_path, class: 'button radius round' %> <br /><br />
     <% end %>
 
       <% @wikis.each do |wiki| %>
-        <h3><%= link_to wiki.user_name, wiki %></h3>
-        <small>submitted <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user_name %></small><br /><br />
+        <h3><%= link_to wiki.user.name, wiki %></h3>
+        <small>submitted <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user.name %></small><br /><br />
       <% end %>
-
-    <%= will_paginate @wikis %>
   </div>
 </div>
