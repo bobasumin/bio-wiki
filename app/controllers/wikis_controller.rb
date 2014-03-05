@@ -9,6 +9,7 @@ class WikisController < ApplicationController
     authorize! :read, @wiki, message: "You need to have a proper permission to read." 
     @users = User.all
     @user = @wiki.user
+    @vote = Vote.new
   end
 
   def new

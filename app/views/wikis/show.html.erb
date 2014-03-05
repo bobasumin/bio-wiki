@@ -7,13 +7,8 @@
           <h3><strong><%= section.name %></strong></h3>
           <p><%= section.body %></p><br />
           <div class="small-4 columns">
-          <% if can? :create, Vote %>
-            <%= form_for section do |f| %>          
-              <%= f.fields_for :votes do |builder| %>
-                <%= render 'vote_fields', f: builder %>
-              <% end %>
-              <%= f.submit "Save", class: "button radius round" %>
-            <% end %>
+          <% if can? :create, Vote %>        
+            <%= render partial: 'votes/form', locals: { wiki: @wiki, section: section, vote: @vote } %>     
           <% end %>
           </div>
           <hr />

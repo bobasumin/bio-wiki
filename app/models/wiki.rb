@@ -1,5 +1,5 @@
 class Wiki < ActiveRecord::Base
-  attr_accessible :user_ids, :sections_attributes, :biocard_attributes, :user_id, :title
+  attr_accessible :user_ids, :sections_attributes, :biocard_attributes, :title
   belongs_to :user
   has_many :sections
   has_one :biocard

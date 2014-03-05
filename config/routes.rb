@@ -4,12 +4,12 @@ BioWiki::Application.routes.draw do
 
   devise_for :users
 
-  resources :wikis
-  
-  resources :sections do
-    resources :votes 
+  resources :wikis do
+    resources :sections do
+      resources :votes 
+    end
   end
-  
+
   resources :subscriptions
   
   match "about" => "welcome#about", via: :get

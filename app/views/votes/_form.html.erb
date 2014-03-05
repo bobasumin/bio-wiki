@@ -1,0 +1,18 @@
+<%= form_for [wiki, section, vote] do |f| %>
+  <% if vote.errors.any? %>
+    <div class="error_messages">
+      <h4>There are <%= pluralize(vote.errors.count, "error") %> errors.</h4>
+      <ul>
+        <% vote.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> 
+
+  <%= f.label :vote, "Vote" %>
+  <%= f.range_field :vote, min: "0", max: "10", step: '1', value: "0" %><br /><br />
+
+  <%#= link_to "Vote", new_wiki_section_vote_path(wiki, section) %> 
+  <%= f.submit "Save", class: "button small radius round" %>
+<% end %>
