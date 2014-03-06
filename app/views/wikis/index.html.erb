@@ -2,12 +2,15 @@
   <div class="panel small-12 columns">
     <h1> All Wikis </h1><br />
 
-    <%#= form_tag wikis_path, method: :get do %>
+    <%= form_tag wikis_path, method: :get do %>
       <p>
-        <%#= text_field_tag :query, params[:query] %>
-        <%#= submit_tag "Search", name: nil, class: 'button small radius round' %>
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag "Search", name: nil, class: 'button small radius round' %>
+        <% if params[:query].present? %>
+          <%= link_to "Clear", wikis_path %>
+        <% end %>
       </p>
-    <%# end %>
+    <% end %>
 
     <% if current_user.wiki.blank? %>
      <%= link_to "New Wiki", new_wiki_path, class: 'button radius round' %> <br /><br />

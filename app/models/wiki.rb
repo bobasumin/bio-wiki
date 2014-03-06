@@ -1,4 +1,5 @@
 class Wiki < ActiveRecord::Base
+  searchkick
   attr_accessible :user_ids, :sections_attributes, :biocard_attributes, :title
   belongs_to :user
   has_many :sections

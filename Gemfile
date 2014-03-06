@@ -40,6 +40,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'pry-rails', :group => :development
 gem 'will_paginate'
+gem "searchkick"
 
 
 # To use ActiveModel has_secure_password
