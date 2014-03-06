@@ -6,12 +6,19 @@
         <% @wiki.sections.each do |section| %>
           <h3><strong><%= section.name %></strong></h3>
           <p><%= section.body %></p><br />
-          <div class="small-4 columns">
-          <% if can? :create, Vote %>        
-            <%= render partial: 'votes/form', locals: { wiki: @wiki, section: section, vote: @vote } %>     
-          <% end %>
-          </div>
+          <% unless current_user.email == @wiki.user.email %> 
+            <% if can? :create, Vote %>
+              <% if current_user.voted(section) %>
+                <p>You have voted <strong> <%="#{current_user.vote_for(section).value}."%></strong></p>
+                <p><%#= link_to "Edit Vote", '#' %></p>
+                <% @current_vote = current_user.vote_for(section) %>
+                <%= render partial: 'votes/form', locals: { wiki: @wiki, section: section, vote: @current_vote } %>   
+              <% else %>        
+                <%= render partial: 'votes/form', locals: { wiki: @wiki, section: section, vote: @vote } %>   
+              <% end %>  
+            <% end %>
           <hr />
+          <% end %>
         <% end %>
       </div>
 
@@ -34,7 +41,7 @@
        <%= link_to "Edit", edit_wiki_path(@wiki), class: 'button radius round' %>
      <% end %><br /><br />
 
-     <% if (@wiki.user.email == current_user.email && current_user.role == 'premium' || 'admin') %>
+     <% if (@wiki.user.email == current_user.email) && (current_user.role == 'premium' || 'admin') %>
        <h3>Add Collaborators to your Wiki</h3><br />
        <%= form_for @wiki do |f| %>
        <table>

@@ -16,6 +16,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def edit
+    binding.pry
     @subscription = current_user.subscription.plan_id
   end
 

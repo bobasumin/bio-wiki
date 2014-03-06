@@ -17,3 +17,12 @@ admin = User.new(
 admin.skip_confirmation!
 admin.save
 admin.update_attribute(:role, "admin")
+
+premium = User.new(
+  :name => "Soo Kim",
+  :email => "premium@vuid.co",
+  :password => "helloworld",
+  :password_confirmation => "helloworld")
+premium.skip_confirmation!
+premium.save
+premium.update_attribute(:role, "premium")

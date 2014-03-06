@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_wikis, :birthdate, :avatar
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role, :stripe_customer_token, :shared_wikis, :avatar, :votes
   has_one :subscription, dependent: :destroy
   has_one :wiki
   has_many :votes, dependent: :destroy
@@ -17,6 +17,14 @@ class User < ActiveRecord::Base
   ROLES = %w[free premium admin]
   def role?(base_role)
     role.nil? ? false : ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+
+  def voted(section)
+    self.votes.where(section_id: section.id).first
+  end
+
+  def vote_for(section)
+    section.votes.where(user_id: self.id).first
   end
 
   private
