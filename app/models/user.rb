@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_one :subscription, dependent: :destroy
   has_one :wiki
   has_many :votes, dependent: :destroy
+  has_many :friendships
+  has_many :friends, through: :friendships
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :inverse_friends, through: :inverse_friendships, source: :user
   has_many :collaborations
   has_many :shared_wikis, through: :collaborations, source: :wiki, dependent: :destroy
   before_create :set_free_user
@@ -27,6 +31,10 @@ class User < ActiveRecord::Base
     section.votes.where(user_id: self.id).first
   end
 
+  def mutual_friends
+    inverse_friends.joins(:friendships).where("friendships.user_id = users.id and friendships.friend_id = :self_id", :self_id => id).all
+  end
+  
   private
 
   def set_free_user

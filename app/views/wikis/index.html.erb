@@ -16,9 +16,10 @@
      <%= link_to "New Wiki", new_wiki_path, class: 'button radius round' %> <br /><br />
     <% end %>
 
-      <% @wikis.each do |wiki| %>
+      <% @wikis.each do |wiki| unless wiki.user == current_user %>
         <h3><%= link_to wiki.user.name, wiki %></h3>
         <small>submitted <%= time_ago_in_words(wiki.created_at) %> ago by <%= wiki.user.name %></small><br /><br />
+        <% end %>
       <% end %>
   </div>
 </div>

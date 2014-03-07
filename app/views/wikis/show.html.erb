@@ -1,6 +1,19 @@
 <div class="row">
   <div class="panel small-12 columns">
-    <h2><strong><%= @user.name %></strong></h2>
+    <div class="small-8 columns">
+      <h2><strong><%= @user.name %></strong></h2>
+    </div>
+    <div class="small-4 columns">
+      <% if @user.email != current_user.email %>
+        <% if not current_user.friends.include?(@user)%>
+          <%= link_to "Connect", friendships_path(:friend_id => @user), method: :post, class: 'button small radius round' %>
+          <% elsif current_user.inverse_friends.include?(@user) %>
+            <p><strong> You are connected with <%= "#{@user.name}" %>. </strong></p>
+            <% else %>
+            <p> Waiting for response... </p>
+        <% end %>
+      <% end %>
+    </div>
     <hr />
       <div class="small-8 columns">
         <% @wiki.sections.each do |section| %>
@@ -50,7 +63,7 @@
           <th>Email</th>
           <th>Give Access</th>
         </tr>
-            <% @users.each do |u| unless (u.email == @wiki.user.email || u.role == 'free' || @wiki.users.include?(u)) %>
+            <% @mutual_friends.each do |u| unless (u.email == @wiki.user.email || u.role == 'free' || @wiki.users.include?(u)) %>
         <tr>
           <td><%= u.name %></td>
           <td><%= u.email %></td>

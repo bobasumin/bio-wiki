@@ -11,8 +11,8 @@ class WikisController < ApplicationController
   def show
     @wiki = Wiki.find(params[:id])
     authorize! :read, @wiki, message: "You need to have a proper permission to read." 
-    @users = User.all
     @user = @wiki.user
+    @mutual_friends = @wiki.user.mutual_friends
     @vote = Vote.new
   end
 

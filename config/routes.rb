@@ -11,6 +11,8 @@ BioWiki::Application.routes.draw do
   end
 
   resources :subscriptions
+
+  resources :friendships
   
   match "about" => "welcome#about", via: :get
 
