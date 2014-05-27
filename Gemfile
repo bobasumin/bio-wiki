@@ -35,7 +35,7 @@ gem 'redcarpet'
 gem "cancan"
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem "friendly_id", "~> 4.0.10"
-gem 'carrierwave'
+gem 'carrierwave', "~> 0.10.0"
 gem 'mini_magick'
 gem 'fog'
 gem 'pry-rails', :group => :development
