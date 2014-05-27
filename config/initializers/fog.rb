@@ -7,6 +7,4 @@ CarrierWave.configure do |config|
   } 
   config.fog_directory  = ENV['AWS_BUCKET']
   config.fog_public     = false 
-  config.cache_dir = "#{Rails.root}/tmp/uploads" 
-  config.fog_directory = ENV['bio-wiki-production']
 end 
