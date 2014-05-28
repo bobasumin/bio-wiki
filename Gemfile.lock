@@ -196,7 +196,7 @@ DEPENDENCIES
   cancan
   carrierwave (~> 0.9.0)
   coffee-rails (~> 3.2.1)
-  devise
+  devise (~> 3.2.2)
   figaro
   fog (~> 1.19.0)
   foundation-rails

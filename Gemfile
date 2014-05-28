@@ -28,7 +28,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'devise'
+gem 'devise', '~> 3.2.2'
 gem 'figaro'
 gem 'foundation-rails'
 gem 'redcarpet'
