@@ -11,10 +11,6 @@
   <% end %>
 
   <div class="small-8 columns">
-    <h3><strong> Personal Life </strong></h3><br />
-      <%= text_area_tag :body, "Add your personal connections here." %>
-      <%= text_area_tag :body, 'Add your family members here.' %><hr />
-
     <%= f.fields_for :sections do |builder| %>
       <%= render 'section_fields', f: builder %> 
     <% end %>
